@@ -1,7 +1,37 @@
 :root {
   --uttn-primary: #0b6e4f;
-  --uttn-primary-dark: #084f38;
-  --uttn-accent: #198754;
+  --uttn-primary-dark: #0b6e4f;
+  --uttn-teal: #0b6e4f;
+  --uttn-teal-soft: #e6f7f3;
+  --uttn-dark: #0b6e4f;
+  --uttn-accent: #f59e0b;
+  --uttn-bg: #f4f7f6;
+  --uttn-border: #dce5e2;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--uttn-bg);
+  color: #1e293b;
+}
+
+.navbar-uttn {
+  background: linear-gradient(135deg, var(--uttn-dark) 0%, var(--uttn-primary) 55%, var(--uttn-teal) 100%);
+  box-shadow: 0 2px 10px rgba(11, 110, 79, 0.22);
+}
+
+.uttn-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 .bg-uttn-primary {
@@ -16,31 +46,87 @@
   background-color: var(--uttn-primary);
   border-color: var(--uttn-primary);
   color: #fff;
+  font-weight: 500;
 }
 
-.btn-uttn-primary:hover {
+.btn-uttn-primary:hover,
+.btn-uttn-primary:focus {
   background-color: var(--uttn-primary-dark);
   border-color: var(--uttn-primary-dark);
   color: #fff;
 }
 
+.btn-uttn-outline {
+  color: var(--uttn-primary);
+  border-color: var(--uttn-primary);
+  background-color: #fff;
+  font-weight: 500;
+}
+
+.btn-uttn-outline:hover {
+  background-color: var(--uttn-teal-soft);
+  border-color: var(--uttn-primary-dark);
+  color: var(--uttn-primary-dark);
+}
+
 #sidebarMenu {
-  width: 230px;
-  min-width: 230px;
-  transition: margin-left 0.2s ease;
+  width: 240px;
+  min-width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid var(--uttn-border);
+  transition: margin-left 0.22s ease;
 }
 
 #sidebarMenu.collapsed {
-  margin-left: -230px;
+  margin-left: -240px;
+}
+
+#sidebarMenu .nav-link {
+  color: #334155;
+  font-weight: 500;
+  font-size: 0.92rem;
+  padding: 0.65rem 1rem;
+  margin: 0.15rem 0.65rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#sidebarMenu .nav-link:hover {
+  background-color: var(--uttn-teal-soft);
+  color: var(--uttn-primary-dark);
+}
+
+#sidebarMenu .nav-link.active {
+  background-color: var(--uttn-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(11, 110, 79, 0.25);
+}
+
+.card-uttn {
+  border: 1px solid var(--uttn-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px rgba(15, 41, 51, 0.05);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.card-uttn .card-header {
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--uttn-teal-soft);
+  padding: 0.85rem 1.15rem;
 }
 
 .qr-viewport-box {
   width: 100%;
   max-width: 460px;
-  min-height: 280px;
+  min-height: 270px;
   aspect-ratio: 4 / 3;
-  background-color: #111827;
-  border-radius: 0.5rem;
+  background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+  border: 2px dashed rgba(26, 177, 146, 0.55);
+  border-radius: 0.75rem;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -48,12 +134,36 @@
   justify-content: center;
 }
 
-.loading-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.45);
-  z-index: 1055;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.table-uttn thead th {
+  background-color: var(--uttn-teal-soft);
+  color: var(--uttn-dark);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid var(--uttn-teal);
+}
+
+.table-uttn tbody td {
+  vertical-align: middle;
+  font-size: 0.9rem;
+}
+
+.clock-pill {
+  background-color: var(--uttn-teal-soft);
+  color: var(--uttn-primary-dark);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 767.98px) {
+  #sidebarMenu {
+    margin-left: -240px;
+  }
+  #sidebarMenu.collapsed {
+    margin-left: 0;
+  }
 }

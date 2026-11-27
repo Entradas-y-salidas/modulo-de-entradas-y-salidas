@@ -1,8 +1,8 @@
 <?php
-$baseUrl = $baseUrl ?? '/ERSPC';
+$baseUrl = $baseUrl ?? '/ERPSC';
 ?>
-<footer class="bg-white border-top py-2 px-3 small text-muted text-center">
-  Universidad Tecnológica de Tamaulipas Norte · Sistema Control de Asistencias
+<footer class="bg-white border-top py-2 px-3 small text-muted text-center mt-auto">
+Sistema Control de Asistencias
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
