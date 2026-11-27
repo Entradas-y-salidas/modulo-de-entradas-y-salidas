@@ -1,0 +1,59 @@
+:root {
+  --uttn-primary: #0b6e4f;
+  --uttn-primary-dark: #084f38;
+  --uttn-accent: #198754;
+}
+
+.bg-uttn-primary {
+  background-color: var(--uttn-primary) !important;
+}
+
+.text-uttn-primary {
+  color: var(--uttn-primary) !important;
+}
+
+.btn-uttn-primary {
+  background-color: var(--uttn-primary);
+  border-color: var(--uttn-primary);
+  color: #fff;
+}
+
+.btn-uttn-primary:hover {
+  background-color: var(--uttn-primary-dark);
+  border-color: var(--uttn-primary-dark);
+  color: #fff;
+}
+
+#sidebarMenu {
+  width: 230px;
+  min-width: 230px;
+  transition: margin-left 0.2s ease;
+}
+
+#sidebarMenu.collapsed {
+  margin-left: -230px;
+}
+
+.qr-viewport-box {
+  width: 100%;
+  max-width: 460px;
+  min-height: 280px;
+  aspect-ratio: 4 / 3;
+  background-color: #111827;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  z-index: 1055;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
