@@ -2,7 +2,7 @@
  
 declare(strict_types=1);
  
-require_once dirname(__DIR__, 2) . '/../../Infrastructure/Database.php';
+require_once dirname(__DIR__, 2) . '/src/Shared/Infrastructure/Database.php';
  
 use Erspc\Shared\Infrastructure\Database;
  
@@ -67,4 +67,3 @@ try {
     http_response_code(500);
     echo json_encode(['ok' => false, 'message' => 'Error interno del servidor.']);
 }
- 

@@ -44,7 +44,7 @@ if ($source === 'sync' && !empty($data['timestamp'])) {
     }
 }
  
-// consultas a la base de datos ─────────────────────────────────────────────
+// ── Consultas a la base de datos ─────────────────────────────────────────────
  
 try {
     $db = Database::getConnection();
@@ -71,7 +71,7 @@ try {
         $status = ($evalTime->format('H:i:s') < '07:00:00') ? 'Asistió' : 'Retardo';
     }
  
-    // buscar al usuario activo por número de empleado
+    // 1. Buscar al usuario activo por número de empleado
     $stmt = $db->prepare('SELECT id, full_name FROM users WHERE e_number = ? AND is_active = 1 LIMIT 1');
     $stmt->bind_param('s', $eNumber);
     $stmt->execute();
@@ -83,7 +83,7 @@ try {
         exit(json_encode(['ok' => false, 'message' => 'Usuario no encontrado o inactivo.']));
     }
  
-    // obtener el id del evento (entrada/salida) desde la tabla de catálogo
+    // 2. Obtener el id del evento (entrada/salida) desde la tabla de catálogo
     $stmt = $db->prepare('SELECT id, label FROM attendance_events WHERE code = ? LIMIT 1');
     $stmt->bind_param('s', $eventCode);
     $stmt->execute();
@@ -98,7 +98,7 @@ try {
     $userId  = (int) $user['id'];
     $eventId = (int) $event['id'];
  
-    // insertar el log de asistencia de forma idempotente por client_uuid
+    // 3. Insertar el log de asistencia de forma idempotente por client_uuid
     $hasStatusCol = Database::hasAttendanceStatusColumn();
  
     if ($hasStatusCol) {
@@ -137,5 +137,3 @@ try {
     http_response_code(500);
     echo json_encode(['ok' => false, 'message' => 'Error interno del servidor.']);
 }
- 
- 
